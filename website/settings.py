@@ -130,9 +130,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_ACTIVATION_DAYS=3
-EMAIL_HOST= 'smtp.gmail.com'
-EMAIL_HOST_USER= 'freecourses678@gmail.com'
-EMAIL_HOST_PASSWORD= 'Free#1234'
+EMAIL_HOST= 'smtp.zoho.in'
+EMAIL_HOST_USER= 'togweb@zoho.in'
+EMAIL_HOST_PASSWORD= 'togweb1234'
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
 DEFAULT_FROM_EMAIL = 'freecourses678@gmail.com'
