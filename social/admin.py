@@ -2,8 +2,8 @@ from django.contrib import admin
 from social.models import FollowUser, MyPost, MyProfile, PostComment,PostLike
 from django.contrib.admin.options import ModelAdmin
 
-admin.site.site_title = 'TogWeb admin'
-admin.site.site_header = "TogWeb Administration"
+admin.site.site_title = 'MIT-RHA admin'
+admin.site.site_header = "MIT-RHA Administration"
 
 
 class FollowUserAdmin(ModelAdmin):

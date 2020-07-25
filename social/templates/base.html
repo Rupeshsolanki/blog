@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -5,12 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TogWeb</title>
 <link href="/static/vender/bs/css/bootstrap.min.css" rel="stylesheet" />
-<link href="/static/style.css" rel="stylesheet">
 <script src="/static/vender/jquery-3.3.1.min.js"></script>
 <script src="/static/vender/popper.min.js"></script>
 <script src="/static/vender/bs/js/bootstrap.min.js"></script>
 <link href="/static/vender/fa/css/font-awesome.min.css" rel="stylesheet" />
-<!---<link href="/static/style.css" rel="stylesheet" />--->
+<!--- <link href="/static/style.css" rel="stylesheet" /> --->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -19,28 +19,33 @@
 	<div id="headfix">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
    <!--- <img src="/static/images/togweb.jpeg" height="70px" weidth="70px">--->
-    <a class="navbar-brand" href="/social/home"><h1><b>TogWeb</b> <h6><i>Preparing The Next</i></h6></a>
+    <a class="navbar-brand" href="/social/home"><img src="{% static 'images/mit.png' %}" width="70" height="70"><h1> </h1> </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item ">
-                <a class="nav-link " href="/social/home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link " href="/social/home">Home <span class="sr-only"></span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="/social/about">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/social/contact">Contact</a>
             </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="/social/mypost">My Posts</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/social/myprofile">Members</a>
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item ">
+                <a class="nav-link " href="/social/blog">Blog <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/social/mypost">My Posts</a>
+            </li>
+            
             <!--- <li class="nav-item ">
                 <a href="/accounts/logout" class="btn btn-outline-danger" role="button" aria-pressed="true">Logout</a>
 

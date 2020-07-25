@@ -10,9 +10,10 @@
 	</div>
 </div>
 <div class="container">
-<form enctype="multipart/form-data" method="post" class="col-sm-5">
+<form enctype="multipart/form-data" method="POST" class="col-sm-5">
 {% csrf_token %}
-{{form | crispy}}<br>
+	{{form | crispy}}
+	<br>
 <button type="submit" class="btn btn-outline-info" font-family:"Comic Sans MS", cursive, sans-serif>Register</button>
 
 </form>

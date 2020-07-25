@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xux@a##4b4@y4h%5c&ag%i@h1o0@%(^4u0k82!1)!pke0)%7=)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -127,18 +127,18 @@ os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ACCOUNT_ACTIVATION_DAYS=3
 EMAIL_HOST= 'smtp.zoho.in'
-EMAIL_HOST_USER= 'togweb@zoho.in'
-EMAIL_HOST_PASSWORD= 'togweb1234'
-EMAIL_PORT= 587
-EMAIL_USE_TLS= True
-DEFAULT_FROM_EMAIL = 'freecourses678@gmail.com'
+EMAIL_HOST_USER= 'togweb@zohomail.in'
+EMAIL_HOST_PASSWORD= 'VnIHSxsXKGIb'
+EMAIL_PORT= 465
+EMAIL_USE_SSL= True
+DEFAULT_FROM_EMAIL = 'togweb@zohomail.in'
+REGISTRATION_ADMINS = ['togweb@zohomail.in']
 
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/social/blog"
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 MEDIA_ROOT = PROJECT_ROOT + '/static/'

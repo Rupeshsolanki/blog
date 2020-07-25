@@ -15,9 +15,14 @@ from django.http.response import HttpResponseRedirect, HttpResponse
 
 
 # Create your views here.
-@method_decorator(login_required, name="dispatch")    
 class HomeView(TemplateView):
     template_name = "social/home.html"
+
+
+
+@method_decorator(login_required, name="dispatch")    
+class BlogView(TemplateView):
+    template_name = "social/blog.html"
     def get_context_data(self, **kwargs):
         context = TemplateView.get_context_data(self, **kwargs)
         followedList = FollowUser.objects.filter(followed_by = self.request.user.myprofile)
@@ -39,8 +44,6 @@ class HomeView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = "social/about.html"
-
-
 def ContactView(request):
         if request.method == 'POST':
             form = ContactForm(request.POST)
@@ -50,13 +53,33 @@ def ContactView(request):
                 sender_email = form.cleaned_data['email']
 
                 message = "{0} has sent you a new message:\n\n{1}".format(sender_name, form.cleaned_data['message'])
-                send_mail('New Enquiry', message, sender_email, ['freecourses678@gmail.com'])
+                send_mail('New Enquiry', message, sender_email, ['togweb@gzohomail.in'])
 
                 return HttpResponse('Thanks for contacting us!')
         else:
             form = ContactForm()
 
         return render(request, 'social/contact.html', {'form': form})
+
+
+
+
+class MyProfileListView(ListView):
+    model = MyProfile
+
+
+''' def get_queryset(self):
+     si = self.request.GET.get("si")
+     if si == None:
+         si = ""
+     profList = MyProfile.objects.filter(Q(name__icontains = si) | Q(address__icontains = si) | Q(gender__icontains = si) | Q(status__icontains = si)).order_by("-id");
+
+    for p1 in profList:
+         p1.followed = False
+         ob = FollowUser.objects.filter(profile = p1,followed_by=self.request.user.myprofile)
+         if ob:
+             p1.followed = True 
+     return profList '''
 
 class ProView(TemplateView):
     template_name = "social/yourprofile.html"
@@ -98,7 +121,6 @@ class MyPostCreate(CreateView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-@method_decorator(login_required, name="dispatch")    
 class MyPostListView(ListView):
     model = MyPost
     def get_queryset(self):
@@ -115,20 +137,7 @@ class MyPostDetailView(DetailView):
 class MyPostDeleteView(DeleteView):
     model = MyPost
 
-@method_decorator(login_required, name="dispatch")    
-class MyProfileListView(ListView):
-    model = MyProfile
-    def get_queryset(self):
-        si = self.request.GET.get("si")
-        if si == None:
-            si = ""
-        profList = MyProfile.objects.filter(Q(name__icontains = si) | Q(address__icontains = si) | Q(gender__icontains = si) | Q(status__icontains = si)).order_by("-id");
-        for p1 in profList:
-            p1.followed = False
-            ob = FollowUser.objects.filter(profile = p1,followed_by=self.request.user.myprofile)
-            if ob:
-                p1.followed = True
-        return profList
+
 
 @method_decorator(login_required, name="dispatch")    
 class MyProfileDetailView(DetailView):

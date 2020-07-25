@@ -3,8 +3,9 @@ from django.urls import path
 from django.urls.conf import include
 from social import views
 from django.views.generic.base import RedirectView
-urlpatterns = [ 
+urlpatterns = [
     path('home/', views.HomeView.as_view()),
+    path('blog/', views.BlogView.as_view()),
     path('about/', views.AboutView.as_view()),
     path('contact/', views.ContactView),
     path('profile/',views.ProView.as_view()),
