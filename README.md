@@ -26,3 +26,18 @@ docker push <docker-hub-username>/blog
 ```sh
 docker run -itd --name <container-name> -p 8000:8000 <docker-hub-username>/blog
 ```
+
+## To run pods in OpenShift using this image use following commands ##
+
+```sh
+oc new-project my-project
+```
+```sh
+oc new-app --name blog --docker-image=rupeshsolanki/blog
+```
+```sh
+oc expose dc blog --port=8000
+```
+```sh
+ oc expose svc blog --port=8000
+ ```
