@@ -15,6 +15,9 @@ RUN pip install Django==2.2.2 django-crispy-forms==1.7.2 django-registration-red
 
 COPY . /code/
 
-RUN python manage.py runserver 0.0.0.0:8000
+#RUN python manage.py runserver 0.0.0.0:8000
+
+CMD ["python", "manage.py" ,"runserver" ,"0.0.0.0:8000"]
+
 
 

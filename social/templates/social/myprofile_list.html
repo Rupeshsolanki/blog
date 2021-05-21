@@ -9,7 +9,7 @@
 </form>
 
 <table class="table my-3">
-    <thead class="bg-secondary ">
+    <thead class="bg-dark text-light">
         <tr>
             <th>Name</th>
 
@@ -18,7 +18,7 @@
     </thead>
 {% for n1 in myprofile_list %}
         <tr>
-            <td <b> <h2 style="color:black;font-size:20px;">>{{n1.name}}</h2></b></td>
+            <td><b> <h2 style="color:black;font-size:20px;">{{n1.name}}</h2></b></td>
 
             <td>
             <a class="btn btn-outline-secondary btn-sm" href='/social/myprofile/{{n1.id}}'><b>Read More</b></a>
